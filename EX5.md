@@ -37,7 +37,7 @@ CREATE TABLE employed(
   salary NUMBER
 );
 ```
-![Alt text](11-1.png)
+![11](https://github.com/Ronick2005/Ex-5-Creating-Triggers-using-PL-SQL/assets/83219341/35e445b8-694f-4a88-8f4c-472ce032415e)
 
 ### Create salary_log table:
 ```
@@ -50,7 +50,7 @@ CREATE TABLE sal_log (
   update_date DATE
 );
 ```
-![Alt text](12.png)
+![12](https://github.com/Ronick2005/Ex-5-Creating-Triggers-using-PL-SQL/assets/83219341/9753bda2-a6ea-4236-b99f-685f468763ff)
 
 ### PLSQL Trigger code
 ->create trigger 
@@ -81,7 +81,7 @@ SELECT * FROM employed;
 SELECT * FROM sal_log;
 ```
 ### Output:
-![Alt text](13.png)
+![13](https://github.com/Ronick2005/Ex-5-Creating-Triggers-using-PL-SQL/assets/83219341/77ea01b3-3716-48c6-99eb-04c5214e0667)
 
 ### Result:
 The program has been implemented successfully.

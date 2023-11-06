@@ -1,5 +1,5 @@
 # Ex. No: 5 Creating Triggers using PL/SQL
-
+# DATE:12.9.23
 ### AIM: To create a Trigger using PL/SQL.
 
 ### Steps:
@@ -13,12 +13,75 @@
 8. Display the employee table, salary_log table.
 
 ### Program:
-### Create employee table
+```
+NAME: Ronick Aakshath P
+Reg.no: 212222240084
+```
+```
+CREATE TABLE sal_log (
+  log_id NUMBER GENERATED ALWAYS AS IDENTITY,
+  empid NUMBER,
+  empname VARCHAR2(10),
+  old_salary NUMBER,
+  new_salary NUMBER,
+  update_date DATE
+);
+```
+### Create employee table:
 
-### Create salary_log table
+```
+CREATE TABLE employed(
+  empid NUMBER,
+  empname VARCHAR2(10),
+  dept VARCHAR2(10),
+  salary NUMBER
+);
+```
+![Alt text](11-1.png)
+
+### Create salary_log table:
+```
+CREATE TABLE sal_log (
+  log_id NUMBER GENERATED ALWAYS AS IDENTITY,
+  empid NUMBER,
+  empname VARCHAR2(10),
+  old_salary NUMBER,
+  new_salary NUMBER,
+  update_date DATE
+);
+```
+![Alt text](12.png)
 
 ### PLSQL Trigger code
-
+->create trigger 
+```
+CREATE OR REPLACE TRIGGER sal_log_update
+BEFORE UPDATE ON employed
+FOR EACH ROW
+BEGIN
+  IF :OLD.salary != :NEW.salary THEN
+    INSERT INTO sal_log (empid, empname, old_salary, new_salary, update_date)
+    VALUES (:OLD.empid, :OLD.empname, :OLD.salary, :NEW.salary, SYSDATE);
+  END IF;
+END;
+/
+```
+->Update the salary of an employee
+```
+UPDATE employed
+SET salary = 60000
+WHERE empid = 1;
+```
+->Display the employee table
+```
+SELECT * FROM employed;
+```
+->Display the salary_log table
+```
+SELECT * FROM sal_log;
+```
 ### Output:
+![Alt text](13.png)
 
 ### Result:
+The program has been implemented successfully.
